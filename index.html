@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pensamiento Inverso — Presentación y Actividad</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+      --radius:14px; --pad:1.2rem; --maxw:1100px;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,Segoe UI,system-ui,-apple-system,Arial; background:linear-gradient(180deg,#071025 0%, #081827 60%); color:#e6eef6}
+    .wrap{max-width:var(--maxw);margin:28px auto;padding:18px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .toolbar{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .title{font-size:18px;font-weight:600;color:var(--accent)}
+    .controls{display:flex;gap:8px}
+    button{background:var(--glass);border:1px solid rgba(255,255,255,0.04);color:inherit;padding:10px 14px;border-radius:10px;cursor:pointer}
+    button:active{transform:translateY(1px)}
+
+    .deck{position:relative;overflow:hidden;border-radius:12px;background:linear-gradient(90deg, rgba(6,182,212,0.02), transparent);padding:24px}
+    .slides{min-height:420px}
+    .slide{display:none;padding:18px;border-radius:12px}
+    .slide.active{display:block}
+    h1{margin:0 0 8px;font-size:28px}
+    h2{margin:8px 0 12px;font-size:20px;color:var(--accent)}
+    p,li{color:#d6e7f1;line-height:1.5}
+    ul{margin:8px 0 16px}
+    .box{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .note{font-size:13px;color:var(--muted)}
+    .progress{height:6px;background:rgba(255,255,255,0.03);border-radius:6px;margin-top:12px;overflow:hidden}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#7c3aed);width:0%;transition:width .35s}
+
+    /* Activity controls */
+    .tools{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    input[type=number],textarea,select{background:#071226;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:8px;color:inherit;width:100%}
+    textarea{min-height:120px}
+    .small{font-size:13px;padding:8px 10px}
+    .flex-row{display:flex;gap:8px}
+    .chip{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.03)}
+    footer{margin-top:14px;text-align:right;font-size:13px;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:800px){.split{grid-template-columns:1fr}.wrap{margin:12px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="toolbar">
+      <div>
+        <div class="title">PENSAMIENTO INVERSO — Taller & Presentación</div>
+        <div class="note">Método: pregunta inversa → lista de fallos → invierte las soluciones</div>
+      </div>
+      <div class="controls">
+        <button id="prevBtn">◀ Anterior</button>
+        <button id="nextBtn">Siguiente ▶</button>
+        <button id="printBtn">Exportar/Imprimir</button>
+      </div>
+    </div>
+
+    <div class="deck">
+      <div class="slides">
+
+        <!-- Slide 1 -->
+        <section class="slide active" data-index="0">
+          <h1>Pensamiento Inverso</h1>
+          <h2>¿Qué es y por qué funciona?</h2>
+          <p>En lugar de preguntarte "¿Cómo logro X?", pregunta "¿Cómo haría para que X FRACASE?". Al listar maneras de fallar y luego invertir cada punto, revelas riesgos ocultos, ideas creativas y soluciones prácticas.</p>
+          <div class="box split">
+            <div>
+              <strong>Pasos rápidos</strong>
+              <ol>
+                <li>Formula la pregunta positiva (ej. "¿Cómo llevar esto al mercado?")</li>
+                <li>Invierte: "¿Cómo haría para que NO llegue al mercado?"</li>
+                <li>Enumera fallos (sin autocensura)</li>
+                <li>Invierte cada fallo en una acción concreta para evitarlo</li>
+              </ol>
+            </div>
+            <div>
+              <strong>Roles sugeridos (aula)</strong>
+              <ul>
+                <li>Facilitador/a — guía tiempo y dinámica</li>
+                <li>Registrador/a — anota fallos y soluciones</li>
+                <li>Presentador/a — comparte conclusiones</li>
+                <li>Crítico creativo — propone objeciones</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 2 -->
+        <section class="slide" data-index="1">
+          <h1>Pregunta 1</h1>
+          <h2>¿Cómo haría que este producto esté en el mercado?</h2>
+          <p><em>Inverse prompt:</em> ¿Cómo haría para que este producto <strong>NO</strong> esté en el mercado?</p>
+
+          <div class="split">
+            <div>
+              <strong>Maneras de evitar el mercado (lista de fallos)</strong>
+              <ul>
+                <li>No entender las necesidades del cliente; construir características que nadie quiere.</li>
+                <li>Fijar un precio illógico (demasiado alto o demasiado bajo).</li>
+                <li>No invertir en marketing ni canales de venta.</li>
+                <li>Producir con mala calidad y sin soporte postventa.</li>
+                <li>Ignorar regulaciones y certificaciones necesarias.</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Invertir → Acciones prácticas</strong>
+              <ul>
+                <li>Realizar entrevistas y pruebas con clientes (MVP) antes de desarrollar.</li>
+                <li>Hacer análisis de precios y pruebas A/B; definir estrategia de valor clara.</li>
+                <li>Plan de marketing con canales target y presupuesto mínimo viable.</li>
+                <li>Control de calidad y política de soporte/garantía desde el día 1.</li>
+                <li>Revisar requisitos regulatorios y planificar cumplimiento.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3 -->
+        <section class="slide" data-index="2">
+          <h1>Pregunta 2</h1>
+          <h2>¿Qué características debe tener para nuestros clientes?</h2>
+          <p><em>Inverse prompt:</em> ¿Qué características harían que el cliente <strong>no</strong> quiera el producto?</p>
+          <div class="split">
+            <div>
+              <strong>Características que alejarían clientes</strong>
+              <ul>
+                <li>Interfaz confusa o sobrecargada.</li>
+                <li>Funciones irrelevantes o demasiado complejas.</li>
+                <li>Falta de confiabilidad y constantes errores.</li>
+                <li>Política comercial confusa (contratos, cargos ocultos).</li>
+                <li>No ofrecer compatibilidad con ecosistemas que usan los clientes.</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Invertir → Requerimientos claros</strong>
+              <ul>
+                <li>UX simple y pruebas de usabilidad con usuarios reales.</li>
+                <li>Priorizar features core; evitar "feature creep".</li>
+                <li>QA, monitoreo y despliegues controlados; comunicación de fallos.</li>
+                <li>Transparencia en precios y contratos sencillos.</li>
+                <li>Integraciones y compatibilidad bien planificadas.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4 -->
+        <section class="slide" data-index="3">
+          <h1>Pregunta 3</h1>
+          <h2>¿Qué pasaría si el elemento más valorado de nuestro servicio no funciona?</h2>
+          <p><em>Inverse prompt:</em> ¿Cómo haría para que ese elemento deje de funcionar?</p>
+          <div class="split">
+            <div>
+              <strong>Formas de romper lo valioso</strong>
+              <ul>
+                <li>Diseñar el servicio con un único punto de falla (no redundancias).</li>
+                <li>No monitorear ni tener alertas tempranas.</li>
+                <li>No capacitar al equipo para responder incidencias.</li>
+                <li>No comunicar errores a clientes ni ofrecer compensaciones.</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Invertir → Plan de resiliencia</strong>
+              <ul>
+                <li>Arquitectura con redundancia o fallback simplificado.</li>
+                <li>Sistema de monitoreo y runbook con roles definidos.</li>
+                <li>Simulacros, documentación y protocolos de respuesta.</li>
+                <li>Política de comunicación y compensación para mantener confianza.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5 -->
+        <section class="slide" data-index="4">
+          <h1>Pregunta 4</h1>
+          <h2>¿Qué hábitos bloquean mi inspiración?</h2>
+          <p><em>Inverse prompt:</em> ¿Qué hábitos me aseguran que <strong>pierda</strong> inspiración?</p>
+          <div class="split">
+            <div>
+              <strong>Hábitos que apagan la creatividad</strong>
+              <ul>
+                <li>Revisar redes sociales constantemente sin propósito.</li>
+                <li>No reservar tiempo para experimentar o leer.</li>
+                <li>Perfeccionismo que bloquea empezar (análisis-parálisis).</li>
+                <li>No descansar ni hacer actividades físicas; agotamiento.</li>
+                <li>Aislarse y evitar feedback.</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Invertir → Hábitos que potencian inspiración</strong>
+              <ul>
+                <li>Bloques de tiempo sin distracciones para explorar ideas (timeboxing).</li>
+                <li>Lectura regular y micro-experimentos creados propositivamente.</li>
+                <li>Cadencia de prototipos rápidos: lanzar antes de pulir.</li>
+                <li>Rutina de sueño, ejercicio y pausas activas.</li>
+                <li>Sesiones de feedback y co-creación con otros.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6 -->
+        <section class="slide" data-index="5">
+          <h1>Pregunta 5</h1>
+          <h2>Si quisiera este año perder mi producto, ¿qué evitaría?</h2>
+          <p><em>Inverse prompt:</em> ¿Qué prácticas acelerarían la pérdida del producto?</p>
+          <div class="split">
+            <div>
+              <strong>Prácticas que destruyen un producto</strong>
+              <ul>
+                <li>Ignorar la retroalimentación del mercado y de clientes.</li>
+                <li>Recortar inversión en desarrollo y soporte para ahorrar a corto plazo.</li>
+                <li>No gestionar caja ni previsiones (quiebra por mala liquidez).</li>
+                <li>No proteger la propiedad intelectual ni acuerdos con socios.</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Invertir → Qué hacer para NO perderlo</strong>
+              <ul>
+                <li>Rutina de escucha activa: métricas + feedback cualitativo.</li>
+                <li>Preservar presupuesto para roadmap mínimo viable y soporte.</li>
+                <li>Plan financiero: runway, objetivos y contingencias.</li>
+                <li>Contratos claros y protección legal sobre activos clave.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7 -->
+        <section class="slide" data-index="6">
+          <h1>Pregunta 6</h1>
+          <h2>¿Cómo haría para que mi proyecto fracasara?</h2>
+          <p><em>Inverse prompt:</em> Enumera todo lo que harías para que el proyecto fracase; luego inviértelo.</p>
+          <div class="box">
+            <strong>Lista de errores comunes</strong>
+            <ul>
+              <li>No validar hipótesis con usuarios.</li>
+              <li>Elegir un equipo inadecuado o sin responsabilidades claras.</li>
+              <li>Falta de plan, metas vagas y sin seguimiento.</li>
+              <li>Comunicación deficiente con stakeholders.</li>
+            </ul>
+            <strong>Invertir → Buenas prácticas</strong>
+            <ul>
+              <li>Validaciones tempranas, pivotes rápidos.</li>
+              <li>Roles definidos, contratar o entrenar según necesidades.</li>
+              <li>Roadmap con hitos, OKRs y reuniones de seguimiento.</li>
+              <li>Comunicación transparente: informes cortos y frecuentes.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 8 -->
+        <section class="slide" data-index="7">
+          <h1>Actividad en aula (60–90 min)</h1>
+          <h2>Dinámica paso a paso</h2>
+          <ol>
+            <li>Formar grupos de 3–5 personas. Asignar roles (ver slide 1).</li>
+            <li>Cada grupo elige 1 de las 6 preguntas (o usa el botón "Aleatorio").</li>
+            <li>7–10 min: Generar la lista de <strong>formas de fallar</strong> (sin autocensura).</li>
+            <li>5–10 min: Invertir cada punto y definir acciones concretas (responsables, tiempo, recursos).</li>
+            <li>2–3 min por grupo: Pitch de 1–2 min. Votación de la idea más útil o sorprendente.</li>
+            <li>Debrief: ¿Qué riesgos no conocíamos? ¿Qué priorizamos ahora?</li>
+          </ol>
+          <div class="note">Variante rápida: 30–40 min con 1 pregunta y prototipo en papel.</div>
+        </section>
+
+        <!-- Slide 9 -->
+        <section class="slide" data-index="8">
+          <h1>Guía del facilitador</h1>
+          <div class="split">
+            <div>
+              <strong>Tiempo total sugerido</strong>
+              <ul>
+                <li>Introducción (10 min)</li>
+                <li>Dinámica de grupos (40–60 min)</li>
+                <li>Presentaciones y cierre (10–20 min)</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Criterios de evaluación</strong>
+              <ul>
+                <li>Creatividad en fallos listados</li>
+                <li>Calidad de las soluciones invertidas</li>
+                <li>Viabilidad y claridad del plan propuesto</li>
+                <li>Dinámica de equipo y comunicación</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 10 -->
+        <section class="slide" data-index="9">
+          <h1>Herramientas interactivas</h1>
+          <p class="note">Usa el panel interactivo para: seleccionar preguntas al azar, temporizar la sesión, recolectar ideas y generar una ficha imprimible para cada grupo.</p>
+
+          <div class="split">
+            <div>
+              <div class="box">
+                <strong>Selector aleatorio</strong>
+                <div style="margin-top:8px"><button id="rndBtn" class="small">Elegir pregunta aleatoria</button></div>
+                <p style="margin-top:8px"><em id="rndOut">(aún no seleccionado)</em></p>
+              </div>
+
+              <div style="margin-top:12px" class="box">
+                <strong>Temporizador</strong>
+                <div class="flex-row" style="margin-top:8px">
+                  <input id="minutes" type="number" min="1" value="7" style="width:80px" />
+                  <button id="startTimer" class="small">Iniciar</button>
+                  <button id="stopTimer" class="small">Detener</button>
+                </div>
+                <p class="note" style="margin-top:8px">Tiempo restante: <strong id="timeDisplay">00:00</strong></p>
+              </div>
+            </div>
+
+            <div>
+              <div class="box">
+                <strong>Entrada rápido — Lista de fallos</strong>
+                <textarea id="failInput" placeholder="Escribe cada forma de fallar en una línea (ej: 'Ignorar feedback')"></textarea>
+                <div class="flex-row" style="margin-top:8px">
+                  <button id="invertBtn">Invertir ideas</button>
+                  <button id="copyBtn">Copiar ficha</button>
+                </div>
+                <p class="note" style="margin-top:8px">La inversión genera sugerencias rápidas; adáptalas en equipo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="box">
+            <strong>Ficha generada (lista lista para imprimir/copiar)</strong>
+            <textarea id="worksheet">Ficha de trabajo\nPregunta: \nListado de fallos:\n1. \n2. \n3. \nSoluciones invertidas:\n1. \n2. \n3. \nResponsables:\nPlazo:\nRecursos:\n</textarea>
+            <div style="text-align:right;margin-top:8px"><button id="printWorksheet">Imprimir ficha</button></div>
+          </div>
+        </section>
+
+        <!-- Slide 11 -->
+        <section class="slide" data-index="10">
+          <h1>Gracias — Próximos pasos</h1>
+          <p>Usa este método cada vez que te sientas bloqueado o cuando quieras validar un plan. Aplicaciones: lanzamiento de producto, mejora de UX, gestión de riesgos y diseño de políticas.</p>
+          <p class="note">¿Quieres que exporte esta presentación a PDF o que cree una versión editable en Google Slides / PowerPoint? Dime cuál prefieres.</p>
+        </section>
+
+      </div>
+
+      <div class="progress"><i id="progressBar"></i></div>
+
+    </div>
+
+    <footer>Presentación interactiva — Pensamiento inverso • Usa ◀ ► o los botones para navegar</footer>
+  </div>
+
+  <script>
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let idx = 0;
+      const progressBar = document.getElementById('progressBar');
+
+      function show(i){
+        slides.forEach(s=>s.classList.remove('active'));
+        slides[i].classList.add('active');
+        idx = i;
+        const pct = Math.round(((i+1)/slides.length)*100);
+        progressBar.style.width = pct+'%';
+      }
+
+      document.getElementById('nextBtn').addEventListener('click', ()=> show(Math.min(idx+1, slides.length-1)));
+      document.getElementById('prevBtn').addEventListener('click', ()=> show(Math.max(idx-1,0)));
+      document.addEventListener('keydown', e=>{
+        if(e.key==='ArrowRight') show(Math.min(idx+1, slides.length-1));
+        if(e.key==='ArrowLeft') show(Math.max(idx-1,0));
+      });
+
+      // Print
+      document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+
+      // Random question
+      const questions = [
+        '¿Cómo haría que este producto esté en el mercado?',
+        '¿Qué características debe tener para nuestros clientes?',
+        '¿Qué pasaría si el elemento más valorado de nuestro servicio no funciona?',
+        '¿Qué hábitos bloquean mi inspiración?',
+        'Si quisiera este año perder mi producto, ¿qué evitaría?',
+        '¿Cómo haría para que mi proyecto fracasara?'
+      ];
+      document.getElementById('rndBtn').addEventListener('click', ()=>{
+        const q = questions[Math.floor(Math.random()*questions.length)];
+        document.getElementById('rndOut').innerText = q;
+      });
+
+      // Timer
+      let timerId=null; let remaining=0;
+      function disp(sec){
+        const m = String(Math.floor(sec/60)).padStart(2,'0');
+        const s = String(sec%60).padStart(2,'0');
+        document.getElementById('timeDisplay').innerText = m+':'+s;
+      }
+      document.getElementById('startTimer').addEventListener('click', ()=>{
+        const mins = parseInt(document.getElementById('minutes').value)||7;
+        remaining = mins*60; disp(remaining);
+        clearInterval(timerId);
+        timerId = setInterval(()=>{
+          remaining--; if(remaining<=0){clearInterval(timerId); alert('Tiempo!'); disp(0);}
+          else disp(remaining);
+        },1000);
+      });
+      document.getElementById('stopTimer').addEventListener('click', ()=>{clearInterval(timerId); disp(0);});
+
+      // Invert ideas (quick helper)
+      document.getElementById('invertBtn').addEventListener('click', ()=>{
+        const text = document.getElementById('failInput').value.trim();
+        if(!text){alert('Escribe al menos una línea con una forma de fallar.'); return}
+        const lines = text.split('\n').map(l=>l.trim()).filter(Boolean);
+        const out = [];
+        for(const l of lines){
+          // heurística simple para invertir
+          let inv = '';
+          if(/no |sin |nunca |no\b/i.test(l)){
+            inv = l.replace(/no |sin |nunca /i,'');
+            inv = 'Asegurar: '+inv;
+          } else if(/no\./i.test(l)){
+            inv = 'Asegurar lo contrario: '+l;
+          } else {
+            inv = 'Hacer lo contrario/asegurar: '+l;
+          }
+          out.push({f:l,i:inv});
+        }
+        // popular worksheet
+        let ws = document.getElementById('worksheet').value;
+        ws = ws.replace(/Listado de fallos:[\s\S]*Soluciones invertidas:/,'Listado de fallos:\n'+lines.map((s,i)=> (i+1)+'. '+s).join('\n')+'\n\nSoluciones invertidas:');
+        const invs = out.map((o,i)=> (i+1)+'. '+o.i).join('\n');
+        ws = ws.replace(/Soluciones invertidas:[\s\S]*Responsables:/,'Soluciones invertidas:\n'+invs+'\n\nResponsables:');
+        document.getElementById('worksheet').value = ws;
+        alert('Ideas invertidas añadidas a la ficha. Revísalas y adáptalas.');
+      });
+
+      // Copy worksheet
+      document.getElementById('copyBtn').addEventListener('click', ()=>{
+        const w = document.getElementById('worksheet');
+        w.select(); document.execCommand('copy');
+        alert('Ficha copiada al portapapeles.');
+      });
+      document.getElementById('printWorksheet').addEventListener('click', ()=>{
+        const w = document.getElementById('worksheet').value;
+        const p = window.open('','_blank');
+        p.document.write('<pre style="font-family:inherit;white-space:pre-wrap">'+w.replace(/</g,'&lt;')+'</pre>');
+        p.document.close();
+        p.print();
+      });
+
+      // init
+      show(0);
+    })();
+  </script>
+</body>
+</html>
